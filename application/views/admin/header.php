@@ -18,23 +18,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/fancybox/jquery.fancybox.min.css" />
+    <link href="<?= base_url('vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('vendor/datatables/dataTables.bootstrap.min.css') ?>"/>
+    <link rel="stylesheet" href="<?= base_url('vendor/fancybox/jquery.fancybox.min.css') ?>" />
 
     <!-- Our Website CSS Styles -->
-    <link rel="stylesheet" href="css/icons.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="<?= base_url('vendor/font-awesome/css/font-awesome.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/admin/main.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/admin/responsive.css') ?>">
 
     <!-- Favicons -->
-    <link rel="icon" sizes="72x72" href="../img/logosmp4.png">
-    <link rel="icon" sizes="114x114" href="../img/logosmp4.png">
+    <link rel="icon" href="<?= base_url('assets/img/logosmp4.png') ?>">
 
 </head>
 <body>
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
-<?php include "navbar.php"; ?>
+
+<?php $this->load->view('admin/navbar', $navdata) ?>

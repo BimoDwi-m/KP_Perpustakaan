@@ -95,13 +95,13 @@
                                             while($row=mysqli_fetch_assoc($buku)){
                                         ?>
                                          <tr>
-                                            <td><?php echo $no; ?></td>
-                                            <td><?php echo $row['judul_buku']; ?></td>
-                                            <td><?php echo $row['pengarang']; ?></td>
-                                            <td><?php echo $row['penerbit']; ?></td>
-                                            <td><?php echo $row['tahun']; ?></td>
-                                            <td><?php echo $row['halaman']; ?></td>
-                                            <td><?php echo $row['judul_kategori']; ?></td>
+                                            <td><?= $no; ?></td>
+                                            <td><?= $row['judul_buku']; ?></td>
+                                            <td><?= $row['pengarang']; ?></td>
+                                            <td><?= $row['penerbit']; ?></td>
+                                            <td><?= $row['tahun']; ?></td>
+                                            <td><?= $row['halaman']; ?></td>
+                                            <td><?= $row['judul_kategori']; ?></td>
                                             <td>
                                                 <?php
                                                     $text = $row['sinopsis'];
@@ -110,10 +110,10 @@
                                                     if(strlen(trim($row['sinopsis']))>30) echo " [...]";
                                                 ?>
                                             </td>
-                                            <td><?php echo $row['stok']; ?></td>
+                                            <td><?= $row['stok']; ?></td>
                                             <td>
-                                                <a data-fancybox="gallery" href="../img/book/<?php echo $row['cover']; ?>">
-                                                    <img src="../img/book/<?php echo $row['cover']; ?>" class="img-thumbnail img-responsive" alt="img" style="width:50px;">
+                                                <a data-fancybox="gallery" href="../img/book/<?= $row['cover']; ?>">
+                                                    <img src="../img/book/<?= $row['cover']; ?>" class="img-thumbnail img-responsive" alt="img" style="width:50px;">
                                                 </a>
                                             </td>
                                             <td>
@@ -129,7 +129,7 @@
                                             </td>
                                             <td>
                                                 <form action="lib/proses.php" method="post">
-                                                <input type="hidden" name="id" value="<?php echo $row['id_buku']; ?>">
+                                                <input type="hidden" name="id" value="<?= $row['id_buku']; ?>">
                                                 <?php if($row['best']==1) {?>
                                                     <button type="submit" name="hapus_best" title="Hapus sebagai best seller" class="c-btn small blue-bg buzz"><i class="fa fa-star"></i></button>
                                                 <?php } else { ?>
@@ -138,19 +138,19 @@
                                                 </form>
 
 
-                                                <a href="" data-toggle="modal" data-target=".Pinjam" data-id='<?php echo $row['id_buku']; ?>' data-judul='<?php echo $row['judul_buku']; ?>'
-                                                data-pengarang='<?php echo $row['pengarang']; ?>'  data-tahun='<?php echo $row['tahun']; ?>'
-                                                data-nama='<?php echo $row['nama'] ?? ''; ?>' data-sinopsis='<?php echo $row['sinopsis']; ?>'
-                                                data-stok='<?php echo $row['stok']; ?>' data-rating='<?php echo $row['rating']; ?>' title="Pinjam" class="c-btn small blue-bg buzz edit_button"><i class="fa fa-exchange"></i></a>
+                                                <a href="" data-toggle="modal" data-target=".Pinjam" data-id='<?= $row['id_buku']; ?>' data-judul='<?= $row['judul_buku']; ?>'
+                                                data-pengarang='<?= $row['pengarang']; ?>'  data-tahun='<?= $row['tahun']; ?>'
+                                                data-nama='<?= $row['nama'] ?? ''; ?>' data-sinopsis='<?= $row['sinopsis']; ?>'
+                                                data-stok='<?= $row['stok']; ?>' data-rating='<?= $row['rating']; ?>' title="Pinjam" class="c-btn small blue-bg buzz edit_button"><i class="fa fa-exchange"></i></a>
 
 
-                                                <a href="" data-toggle="modal" data-target=".edit" data-id='<?php echo $row['id_buku']; ?>' data-judul='<?php echo $row['judul_buku']; ?>'
-                                                data-pengarang='<?php echo $row['pengarang']; ?>' data-penerbit='<?php echo $row['penerbit']; ?>' data-tahun='<?php echo $row['tahun']; ?>'
-                                                data-halaman='<?php echo $row['halaman']; ?>' data-kategori='<?php echo $row['id_kategori']; ?>' data-sinopsis='<?php echo $row['sinopsis']; ?>'
-                                                data-stok='<?php echo $row['stok']; ?>' data-rating='<?php echo $row['rating']; ?>' class="c-btn small green-bg buzz edit_button"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="" data-toggle="modal" data-target=".edit" data-id='<?= $row['id_buku']; ?>' data-judul='<?= $row['judul_buku']; ?>'
+                                                data-pengarang='<?= $row['pengarang']; ?>' data-penerbit='<?= $row['penerbit']; ?>' data-tahun='<?= $row['tahun']; ?>'
+                                                data-halaman='<?= $row['halaman']; ?>' data-kategori='<?= $row['id_kategori']; ?>' data-sinopsis='<?= $row['sinopsis']; ?>'
+                                                data-stok='<?= $row['stok']; ?>' data-rating='<?= $row['rating']; ?>' class="c-btn small green-bg buzz edit_button"><i class="fa fa-pencil-square"></i></a>
 
-                                                <a href="" data-toggle="modal" data-target=".hapus" data-id='<?php echo $row['id_buku']; ?>' data-judul='<?php echo $row['judul_buku']; ?>'
-                                                data-pengarang='<?php echo $row['pengarang']; ?>' data-penerbit='<?php echo $row['penerbit']; ?>' class="c-btn small red-bg buzz delete_button"><i class="fa fa-trash"></i></a>
+                                                <a href="" data-toggle="modal" data-target=".hapus" data-id='<?= $row['id_buku']; ?>' data-judul='<?= $row['judul_buku']; ?>'
+                                                data-pengarang='<?= $row['pengarang']; ?>' data-penerbit='<?= $row['penerbit']; ?>' class="c-btn small red-bg buzz delete_button"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                          <?php $no++; } ?>
@@ -199,7 +199,7 @@
                             <label for="kategori">Kategori</label>
                             <select name="kategori" id="kategori" class="form-control">
                                 <?php while($row=mysqli_fetch_assoc($kategori)){ ?>
-                                    <option value="<?php echo $row['id_kategori']; ?>"><?php echo $row['judul_kategori']; ?></option>
+                                    <option value="<?= $row['id_kategori']; ?>"><?= $row['judul_kategori']; ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -355,7 +355,7 @@
                                 <?php
                                     $kat=mysqli_query($konek, "SELECT * FROM tb_kategori");
                                     while($data=mysqli_fetch_assoc($kat)){ ?>
-                                    <option value="<?php echo $data['id_kategori']; ?>" id="<?php echo $data['id_kategori']; ?>"><?php echo $data['judul_kategori']; ?></option>
+                                    <option value="<?= $data['id_kategori']; ?>" id="<?= $data['id_kategori']; ?>"><?= $data['judul_kategori']; ?></option>
                                 <?php } ?>
                             </select>
                         </div>

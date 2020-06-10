@@ -20,14 +20,14 @@
                     ?>
                     <div role="alert" class="alert color green-bg fade in alert-dismissible">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                <strong>Berhasil login!</strong> selamat Datang <strong><?php echo $_SESSION['nama']; ?></strong>, Anda berhasil login sebagai administrator <strong>Spenforlu Library</strong>
+                                <strong>Berhasil login!</strong> selamat Datang <strong><?= $_SESSION['nama']; ?></strong>, Anda berhasil login sebagai administrator <strong>Spenforlu Library</strong>
                     </div>
                     <?php } } ?>
                 </div>
                 <div class="col-md-3 column">
                     <div class="heading-profile">
                         <h2>Dashboard</h2>
-                        <span><?php echo $_SESSION['nama']; ?></span>
+                        <span><?= $_SESSION['nama']; ?></span>
                     </div>
                 </div>
 
@@ -45,10 +45,10 @@
                         <div class="quick-report-widget">
                             <span><strong>Anggota</strong></span>
                             <h4>
-                                <?php echo mysqli_num_rows($anggota); ?>
+                                <?= $navdata['anggota'] ?>
                             </h4>
                             <i class="fa fa-users green-bg"></i>
-                            <h5>Total Anggota : <?php echo mysqli_num_rows($anggota); ?></h5>
+                            <h5>Total Anggota : <?= $navdata['anggota'] ?></h5>
                         </div>
                     </div><!-- Widget -->
                 </div>
@@ -58,10 +58,10 @@
                         <div class="quick-report-widget">
                             <span><strong>Buku</strong></span>
                             <h4>
-                                <?php echo mysqli_num_rows($buku); ?>
+                                <?= $navdata['buku'] ?>
                             </h4>
                             <i class="fa fa-book red-bg"></i>
-                            <h5>Total Stok Buku : <?php echo $stok[0]; ?></h5>
+                            <h5>Total Stok Buku : <?= $stok[0]; ?></h5>
                         </div>
                     </div><!-- Widget -->
                 </div>
@@ -70,10 +70,10 @@
                         <div class="quick-report-widget">
                             <span><strong>Kategori</strong></span>
                             <h4>
-                                <?php echo mysqli_num_rows($kategori); ?>
+                                <?= $navdata['kategori']; ?>
                             </h4>
                             <i class="fa fa-tags skyblue-bg"></i>
-                            <h5>Total Kategori Buku : <?php echo mysqli_num_rows($kategori); ?></h5>
+                            <h5>Total Kategori Buku : <?= $navdata['kategori']; ?></h5>
                         </div>
                     </div><!-- Widget -->
                 </div>
@@ -84,10 +84,10 @@
                         <div class="quick-report-widget">
                             <span><strong>Peminjaman</strong></span>
                             <h4>
-                                <?php echo mysqli_num_rows($Peminjaman); ?>
+                                <?= $navdata['Peminjaman']; ?>
                             </h4>
                             <i class="fa fa-exchange green-bg"></i>
-                            <h5>Total Peminjaman dikembalikan : <?php echo mysqli_num_rows($peminjamkembali); ?></h5>
+                            <h5>Total Peminjaman dikembalikan : <?= $navdata['peminjamkembali']; ?></h5>
                         </div>
                     </div><!-- Widget -->
                 </div>
@@ -97,10 +97,10 @@
                         <div class="quick-report-widget">
                             <span><strong>Pengembalian</strong></span>
                             <h4>
-                                <?php echo mysqli_num_rows($pengembalian); ?>
+                                <?= $navdata['pengembalian']; ?>
                             </h4>
                             <i class="fa fa-users red-bg"></i>
-                            <h5>Total Pengembalian Buku : <?php echo mysqli_num_rows($pengembalian); ?></h5>
+                            <h5>Total Pengembalian Buku : <?= $navdata['pengembalian']; ?></h5>
                         </div>
                     </div><!-- Widget -->
                 </div>
@@ -110,10 +110,10 @@
                         <div class="quick-report-widget">
                             <span><strong>Komentar</strong></span>
                             <h4>
-                                <?php echo mysqli_num_rows($komentar); ?>
+                                <?= $navdata['komentar']; ?>
                             </h4>
                             <i class="fa fa-comments green-bg"></i>
-                            <h5>Total Komentar : <?php echo mysqli_num_rows($komentar); ?></h5>
+                            <h5>Total Komentar : <?= $navdata['komentar']; ?></h5>
                         </div>
                     </div><!-- Widget -->
                 </div>

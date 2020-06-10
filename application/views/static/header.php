@@ -32,7 +32,7 @@
   <!--==========================
     Header
   ============================-->
-  <?php if ($index === 1) : ?>
+  <?php if ($index ?? 0 === 1) : ?>
     <header id="header">
       <div class="container-fluid">
 
@@ -77,7 +77,7 @@
 
                   <!-- Search -->
                   <div class="nav-search hidden-sm hidden-xs">
-                    <form method="get" name="cari" action="index.php">
+                    <form method="get" name="cari" action="<?= base_url() ?>">
                       <input type="text" name="judul" class="form-control" placeholder="Cari judul buku">
                       <button name="cari" type="submit" class="search-button">
                         <i class="icon icon_search"></i>
@@ -110,7 +110,7 @@
                   <ul class="nav navbar-nav">
 
                     <li id="mobile-search" class="hidden-lg hidden-md">
-                      <form method="get" name="cari" action="index.php" class="mobile-search relative">
+                      <form method="get" name="cari" action="<?= base_url() ?>" class="mobile-search relative">
                         <input type="text" name="judul" class="form-control" placeholder="Cari...">
                         <button name="cari" type="submit" class="search-button">
                           <i class="icon icon_search"></i>
@@ -119,7 +119,7 @@
                     </li>
 
                     <li class="dropdown">
-                      <a href="index.php">Beranda</a>
+                      <a href="<?= base_url() ?>">Beranda</a>
                     </li>
 
                     <li class="dropdown">

@@ -70,14 +70,14 @@
                                             while ($row=mysqli_fetch_assoc($lokasi)) {
                                         ?>
                                         <tr>
-                                            <td><?php echo $no ?></td>
-                                            <td><?php echo $row['id_lokasi'] ?></td>
-                                            <td><?php echo $row['nama_lokasi'] ?></td>
+                                            <td><?= $no ?></td>
+                                            <td><?= $row['id_lokasi'] ?></td>
+                                            <td><?= $row['nama_lokasi'] ?></td>
                                             <td>
-                                                <a href="#" data-toggle="modal" data-target=".lokasi" data-id='<?php echo $row['id_lokasi'] ?>' data-lokasi='<?php echo $row['nama_lokasi'] ?>'
+                                                <a href="#" data-toggle="modal" data-target=".lokasi" data-id='<?= $row['id_lokasi'] ?>' data-lokasi='<?= $row['nama_lokasi'] ?>'
                                                 class="c-btn small blue-bg buzz edit_button"><i class="fa fa-pencil-square"></i></a>
 
-                                                <a href="#" data-toggle="modal" data-target=".hapus" data-id='<?php echo $row['id_lokasi'] ?>' data-lokasi='<?php echo $row['nama_lokasi'] ?>'
+                                                <a href="#" data-toggle="modal" data-target=".hapus" data-id='<?= $row['id_lokasi'] ?>' data-lokasi='<?= $row['nama_lokasi'] ?>'
                                                 class="c-btn small red-bg buzz delete_button"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>

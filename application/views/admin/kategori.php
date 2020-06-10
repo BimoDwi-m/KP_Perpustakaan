@@ -70,14 +70,14 @@
                                             while ($row=mysqli_fetch_assoc($kategori)) {
                                         ?>
                                         <tr>
-                                            <td><?php echo $no ?></td>
-                                            <td><?php echo $row['id_kategori'] ?></td>
-                                            <td><?php echo $row['judul_kategori'] ?></td>
+                                            <td><?= $no ?></td>
+                                            <td><?= $row['id_kategori'] ?></td>
+                                            <td><?= $row['judul_kategori'] ?></td>
                                             <td>
-                                                <a href="#" data-toggle="modal" data-target=".kategori" data-id='<?php echo $row['id_kategori'] ?>' data-kategori='<?php echo $row['judul_kategori'] ?>'
+                                                <a href="#" data-toggle="modal" data-target=".kategori" data-id='<?= $row['id_kategori'] ?>' data-kategori='<?= $row['judul_kategori'] ?>'
                                                 class="c-btn small blue-bg buzz edit_button"><i class="fa fa-pencil-square"></i></a>
 
-                                                <a href="#" data-toggle="modal" data-target=".hapus" data-id='<?php echo $row['id_kategori'] ?>' data-kategori='<?php echo $row['judul_kategori'] ?>'
+                                                <a href="#" data-toggle="modal" data-target=".hapus" data-id='<?= $row['id_kategori'] ?>' data-kategori='<?= $row['judul_kategori'] ?>'
                                                 class="c-btn small red-bg buzz delete_button"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>

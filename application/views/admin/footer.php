@@ -12,7 +12,7 @@
       </div>
       <div class="modal-footer">
         <div class="col-md-4 col-md-offset-4">
-                <a href="lib/logout.php" class="c-btn large blue-bg">Ya</a>
+                <a href="<?= base_url('logout') ?>" class="c-btn large blue-bg">Ya</a>
                 <button type="button" class="c-btn large red-bg" data-dismiss="modal">Batal</button>
         </div>
       </div>
@@ -21,25 +21,25 @@
 </div>
 
 <!-- Vendor: Javascripts -->
-<script src="js/jquery-2.1.3.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="<?= base_url('vendor/jquery/jquery.min.js') ?>"></script>
+<script src="<?= base_url('vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
 
 <!-- Our Website Javascripts -->
-<script src="js/app.js"></script>
-<script src="js/common.js"></script>
+<script src="<?= base_url('assets/js/admin/app.js') ?>"></script>
+<script src="<?= base_url('assets/js/admin/common.js') ?>"></script>
 <?php if(!isset($_GET['p'])) { ?>
-    <script src="js/home1.js"></script>
+    <script src="<?= base_url('assets/js/admin/home1.js') ?>"></script>
 <?php } ?>
 <?php
     if(isset($_GET['p'])){
         $hal = $_GET['p'];
         if($hal=='data'){
 ?>
-        <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="js/fancybox/jquery.fancybox.min.js"></script>
-        <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/tinymce/jquery.tinymce.min.js"></script>
-        <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
+        <script type="text/javascript" src="<?= base_url('vendor/datatables/dataTables.bootstrap.min.js') ?>"></script>
+        <script type="text/javascript" src="<?= base_url('vendor/fancybox/jquery.fancybox.min.js') ?>"></script>
+        <script type="text/javascript" src="<?= base_url('vendor/dataTables.bootstrap.min.js') ?>"></script>
+        <script type="text/javascript" src="<?= base_url('vendor/tinymce/jquery.tinymce.min.js') ?>"></script>
+        <script type="text/javascript" src="<?= base_url('vendor/tinymce/tinymce.min.js') ?>"></script>
         <script type="text/javascript" class="init">
             tglpinjam = document.getElementById('datenow').valueAsDate = new Date();
         Date.prototype.addDays = function (days) {
@@ -143,7 +143,7 @@
         });
     </script>
 <?php } else if($hal=='slider'){  ?>
-    <script type="text/javascript" src="js/fancybox/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="<?= base_url('vendor/fancybox/jquery.fancybox.min.js') ?>"></script>
     <script type="text/javascript" class="init">
         $(document).on( "click", '.edit_button',function(e) {
                 var judul = $(this).data('judul');
@@ -167,8 +167,8 @@
         });
     </script>
 <?php } else if($hal=='comment'){?>
-    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?= base_url('vendor/jquery.dataTables.min.js') ?>"></script>
+    <script type="text/javascript" src="<?= base_url('vendor/dataTables.bootstrap.min.js') ?>"></script>
     <script type="text/javascript" class="init">
         $(document).ready(function() {
 				$('#komentar').DataTable({

@@ -79,22 +79,22 @@
                                             while ($row=mysqli_fetch_assoc($slider)) {
                                         ?>
                                           <tr>
-                                             <td><?php echo $no; ?></td>
-                                             <td><?php echo $row['judul_slide']; ?></td>
-                                             <td><?php echo $row['keterangan']; ?></td>
+                                             <td><?= $no; ?></td>
+                                             <td><?= $row['judul_slide']; ?></td>
+                                             <td><?= $row['keterangan']; ?></td>
                                              <td>
-                                                 <a data-fancybox="gallery" href="../img/slider/<?php echo $row['gambar']; ?>">
-                                                    <img src="../img/slider/<?php echo $row['gambar']; ?>" class="img-thumbnail img-responsive" alt="img" style="width:100px;">
+                                                 <a data-fancybox="gallery" href="../img/slider/<?= $row['gambar']; ?>">
+                                                    <img src="../img/slider/<?= $row['gambar']; ?>" class="img-thumbnail img-responsive" alt="img" style="width:100px;">
                                                 </a>
                                             </td>
-                                             <td><?php echo $row['urutan']; ?></td>
+                                             <td><?= $row['urutan']; ?></td>
                                              <td>
-                                                 <a href="#" data-toggle="modal" data-target=".edit" data-id='<?php echo $row['id_slide']; ?>' data-judul='<?php echo $row['judul_slide']; ?>'
-                                                 data-keterangan="<?php echo $row['keterangan']; ?>" data-urutan='<?php echo $row['urutan']; ?>'
+                                                 <a href="#" data-toggle="modal" data-target=".edit" data-id='<?= $row['id_slide']; ?>' data-judul='<?= $row['judul_slide']; ?>'
+                                                 data-keterangan="<?= $row['keterangan']; ?>" data-urutan='<?= $row['urutan']; ?>'
                                                  class="c-btn small blue-bg buzz edit_button"><i class="fa fa-pencil-square"></i></a>
 
-                                                <a href="#" data-toggle="modal" data-target=".hapus" data-id='<?php echo $row['id_slide']; ?>' data-judul='<?php echo $row['judul_slide']; ?>'
-                                                 data-urutan='<?php echo $row['urutan']; ?>'
+                                                <a href="#" data-toggle="modal" data-target=".hapus" data-id='<?= $row['id_slide']; ?>' data-judul='<?= $row['judul_slide']; ?>'
+                                                 data-urutan='<?= $row['urutan']; ?>'
                                                  class="c-btn small red-bg buzz delete_button"><i class="fa fa-trash"></i></a>
                                              </td>
                                           </tr>

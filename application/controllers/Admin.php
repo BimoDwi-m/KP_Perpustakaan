@@ -36,13 +36,21 @@ class Admin extends CI_Controller {
 	 */
 	protected function view($view, $data = []) {
 		$data['role'] = static::ROLE;
+		$konek = $data['konek'] = $this->db->conn_id;
+		$data['navdata'] = [
+			'buku' => mysqli_fetch_row(mysqli_query($konek, "SELECT COUNT(*) AS size FROM tb_buku"))[0],
+			'anggota' => mysqli_fetch_row(mysqli_query($konek, "SELECT COUNT(*) AS size FROM tbl_anggota"))[0],
+			'pengembalian' => mysqli_fetch_row(mysqli_query($konek, "SELECT COUNT(*) AS size FROM tbl_pengembalian"))[0],
+			'Peminjaman' => mysqli_fetch_row(mysqli_query($konek, "SELECT COUNT(*) AS size FROM tbl_peminjaman where status = 'belum kembali'"))[0],
+			'kategori' => mysqli_fetch_row(mysqli_query($konek, "SELECT COUNT(*) AS size FROM tb_kategori"))[0],
+			'lokasi' => mysqli_fetch_row(mysqli_query($konek, "SELECT COUNT(*) AS size FROM tb_lokasi"))[0],
+		];
 		load_view($view, $data, static::ROLE);
 	}
 
 	public function dashboard()
 	{
 		$this->view('dashboard', [
-			'konek' => $this->db->conn_id,
 		]);
 	}
 

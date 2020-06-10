@@ -71,8 +71,8 @@
                                             while($row=mysqli_fetch_assoc($komentar)){
                                         ?>
                                          <tr>
-                                            <td><?php echo $no; ?></td>
-                                            <td><?php echo $row['nama']; ?></td>
+                                            <td><?= $no; ?></td>
+                                            <td><?= $row['nama']; ?></td>
                                             <td>
                                                 <?php
                                                     $text = $row['isi_komentar'];
@@ -86,11 +86,11 @@
                                                     ?>
                                                 </div>
                                             </td>
-                                            <td><?php echo $row['judul_buku']; ?></td>
-                                            <td><?php echo $row['tgl']; ?></td>
+                                            <td><?= $row['judul_buku']; ?></td>
+                                            <td><?= $row['tgl']; ?></td>
                                             <td>
-                                                <a href="" data-toggle="modal" data-target=".hapus" data-id='<?php echo $row['id_komentar']; ?>' data-nama='<?php echo $row['nama']; ?>'
-                                                data-komentar='<?php echo $strip; ?>' data-judul='<?php echo $row['judul_buku']; ?>' class="c-btn small red-bg buzz delete_button"><i class="fa fa-trash"></i></a>
+                                                <a href="" data-toggle="modal" data-target=".hapus" data-id='<?= $row['id_komentar']; ?>' data-nama='<?= $row['nama']; ?>'
+                                                data-komentar='<?= $strip; ?>' data-judul='<?= $row['judul_buku']; ?>' class="c-btn small red-bg buzz delete_button"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                          <?php $no++; } ?>
@@ -132,8 +132,8 @@
                                             while($row=mysqli_fetch_assoc($deleted)){
                                         ?>
                                          <tr>
-                                            <td><?php echo $no; ?></td>
-                                            <td><?php echo $row['nama']; ?></td>
+                                            <td><?= $no; ?></td>
+                                            <td><?= $row['nama']; ?></td>
                                             <td>
                                                 <?php
                                                     $text = $row['isi_komentar'];
@@ -147,11 +147,11 @@
                                                     ?>
                                                 </div>
                                             </td>
-                                            <td><?php echo $row['judul_buku']; ?></td>
-                                            <td><?php echo $row['tgl']; ?></td>
+                                            <td><?= $row['judul_buku']; ?></td>
+                                            <td><?= $row['tgl']; ?></td>
                                             <td>
                                                 <form action="lib/proses.php" method="post">
-                                                    <input type="hidden" name="id" value="<?php echo $row['id_komentar']; ?>">
+                                                    <input type="hidden" name="id" value="<?= $row['id_komentar']; ?>">
                                                     <button type="submit" name="restore_comment" class="c-btn small blue-bg buzz"><i class="fa fa-reply"></i></button>
                                                 </form>
                                             </td>

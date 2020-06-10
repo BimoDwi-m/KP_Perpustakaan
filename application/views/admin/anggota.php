@@ -88,21 +88,21 @@
                                             while($row=mysqli_fetch_assoc($query)){
                                         ?>
                                          <tr>
-                                            <td><?php echo $no; ?></td>
-                                            <td><?php echo $row['nia']; ?></td>
-                                            <td><?php echo $row['nama']; ?></td>
-                                            <td><?php echo $row['jenis_kelamin']; ?></td>
-                                            <td><?php echo $row['tempat_lahir']; ?></td>
-                                            <td><?php echo $row['tgl_lahir']; ?></td>
-                                            <td><?php echo $row['jenis']; ?></td>
+                                            <td><?= $no; ?></td>
+                                            <td><?= $row['nia']; ?></td>
+                                            <td><?= $row['nama']; ?></td>
+                                            <td><?= $row['jenis_kelamin']; ?></td>
+                                            <td><?= $row['tempat_lahir']; ?></td>
+                                            <td><?= $row['tgl_lahir']; ?></td>
+                                            <td><?= $row['jenis']; ?></td>
 <!--                                             <td>
 
-                                                <a href="" data-toggle="modal" data-target=".edit" data-id='<?php echo $row['id_anggota']; ?>' data-nama='<?php echo $row['nama']; ?>'
-                                                data-jenis_kelamin='<?php echo $row['jenis_kelamin']; ?>' data-tempat_lahir='<?php echo $row['tempat_lahir']; ?>' data-tgl_lahir='<?php echo $row['tgl_lahir']; ?>'
-                                                data-jenis='<?php echo $row['jenis']; ?>' class="c-btn small green-bg buzz edit_button"><i class="fa fa-pencil-square"></i></a>
+                                                <a href="" data-toggle="modal" data-target=".edit" data-id='<?= $row['id_anggota']; ?>' data-nama='<?= $row['nama']; ?>'
+                                                data-jenis_kelamin='<?= $row['jenis_kelamin']; ?>' data-tempat_lahir='<?= $row['tempat_lahir']; ?>' data-tgl_lahir='<?= $row['tgl_lahir']; ?>'
+                                                data-jenis='<?= $row['jenis']; ?>' class="c-btn small green-bg buzz edit_button"><i class="fa fa-pencil-square"></i></a>
 
-                                                <a href="" data-toggle="modal" data-target=".hapus" data-id='<?php echo $row['id_buku']; ?>' data-judul='<?php echo $row['judul_buku']; ?>'
-                                                data-pengarang='<?php echo $row['pengarang']; ?>' data-penerbit='<?php echo $row['penerbit']; ?>' class="c-btn small red-bg buzz delete_button"><i class="fa fa-trash"></i></a>
+                                                <a href="" data-toggle="modal" data-target=".hapus" data-id='<?= $row['id_buku']; ?>' data-judul='<?= $row['judul_buku']; ?>'
+                                                data-pengarang='<?= $row['pengarang']; ?>' data-penerbit='<?= $row['penerbit']; ?>' class="c-btn small red-bg buzz delete_button"><i class="fa fa-trash"></i></a>
                                             </td> -->
                                         </tr>
                                          <?php $no++; } ?>
@@ -152,7 +152,7 @@
                             <input type="text" placeholder="Masukkan Jenis Anggota" id="jenis" name="jenis" class="form-control" required>
 <!--                             <select name="kategori" id="kategori" class="form-control">
                                 <?php while($row=mysqli_fetch_assoc($kategori)){ ?>
-                                    <option value="<?php echo $row['id_kategori']; ?>"><?php echo $row['judul_kategori']; ?></option>
+                                    <option value="<?= $row['id_kategori']; ?>"><?= $row['judul_kategori']; ?></option>
                                 <?php } ?>
                             </select> -->
                         </div>
@@ -212,7 +212,7 @@
                                 <?php
                                     $kat=mysqli_query($konek, "SELECT * FROM tb_kategori");
                                     while($data=mysqli_fetch_assoc($kat)){ ?>
-                                    <option value="<?php echo $data['id_kategori']; ?>" id="<?php echo $data['id_kategori']; ?>"><?php echo $data['judul_kategori']; ?></option>
+                                    <option value="<?= $data['id_kategori']; ?>" id="<?= $data['id_kategori']; ?>"><?= $data['judul_kategori']; ?></option>
                                 <?php } ?>
                             </select>
                         </div>
