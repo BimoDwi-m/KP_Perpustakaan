@@ -1,7 +1,7 @@
 <?php
         include 'fungsi_admin.php';
         $koneksi = mysqli_connect('localhost','root','','db_buku');
-        session_start();
+
         if (empty($_SESSION['username'])){
             ?>
 <script>
@@ -69,7 +69,7 @@
                <li><a href="#" title="">Beranda</a></li>
                <li>Data Peminjaman</li>
           </ul>
-        
+
 <div class="x_content">
     <div class="row">
         <div class="col-sm-12">

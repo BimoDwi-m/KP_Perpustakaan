@@ -50,56 +50,63 @@ class Admin extends CI_Controller {
 
 	public function dashboard()
 	{
+		$konek = $this->db->conn_id;
 		$this->view('dashboard', [
+			'buku' => mysqli_fetch_row(mysqli_query($konek, "SELECT id_buku FROM tb_buku"))[0],
+			'kategori' => mysqli_fetch_row(mysqli_query($konek, "SELECT id_kategori FROM tb_kategori"))[0],
+			'kembali' => mysqli_fetch_row(mysqli_query($konek, "SELECT id_pengembalian FROM tbl_pengembalian"))[0],
+			'komentar' => mysqli_fetch_row(mysqli_query($konek, "SELECT id_komentar FROM tb_komentar WHERE hapus=0"))[0],
+			'peminjam' => mysqli_fetch_row(mysqli_query($konek, "SELECT id_peminjaman FROM tbl_peminjaman where status = 'belum kembali'"))[0],
+			'peminjamkembali' => mysqli_fetch_row(mysqli_query($konek, "SELECT id_peminjaman FROM tbl_peminjaman where status = 'kembali'"))[0],
+			'stok' => mysqli_fetch_row(mysqli_query($konek, "SELECT SUM(stok) FROM tb_buku"))[0],
 		]);
 	}
 
 	public function peminjaman()
 	{
 		$this->view('peminjaman', [
-			'konek' => $this->db->conn_id,
 		]);
 	}
 
 	public function pengembalian()
 	{
 		$this->view('pengembalian', [
-			'konek' => $this->db->conn_id,
+		]);
+	}
+
+	public function buku()
+	{
+		$this->view('buku', [
 		]);
 	}
 
 	public function kategori()
 	{
 		$this->view('kategori', [
-			'konek' => $this->db->conn_id,
 		]);
 	}
 
 	public function lokasi()
 	{
 		$this->view('lokasi', [
-			'konek' => $this->db->conn_id,
 		]);
 	}
 
 	public function comment()
 	{
 		$this->view('comment', [
-			'konek' => $this->db->conn_id,
 		]);
 	}
 
 	public function anggota()
 	{
 		$this->view('anggota', [
-			'konek' => $this->db->conn_id,
 		]);
 	}
 
 	public function slider()
 	{
 		$this->view('slider', [
-			'konek' => $this->db->conn_id,
 		]);
 	}
 
@@ -110,7 +117,7 @@ class Admin extends CI_Controller {
 	{
 		if ($action == 'edit') {
 			$this->view('profile', [
-				'data' => $this->db->get_where('login', ["login_id" => $this->current_id])->row(),
+				'data' => $this->db->get_where('tb_user', ["id_user" => $this->current_id])->row(),
 			]);
 		} else if ($action == 'update') {
 			$require_password = $this->input->post('password') || empty($this->session->password);

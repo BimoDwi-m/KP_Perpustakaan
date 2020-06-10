@@ -1,23 +1,5 @@
 
-<div class="modal fade logout" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Konfirmasi Keluar</h4>
-      </div>
-      <div class="modal-body">
-        <p>Apakah Anda Yakin Akan Keluar?</p>
-      </div>
-      <div class="modal-footer">
-        <div class="col-md-4 col-md-offset-4">
-                <a href="<?= base_url('logout') ?>" class="c-btn large blue-bg">Ya</a>
-                <button type="button" class="c-btn large red-bg" data-dismiss="modal">Batal</button>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </div>
 
 <!-- Vendor: Javascripts -->
