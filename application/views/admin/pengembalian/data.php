@@ -1,5 +1,6 @@
+<?php $this->load->view('admin/fungsi_admin') ?>
+
 <?php
-        include 'fungsi_admin.php';
         $koneksi = mysqli_connect('localhost','root','','db_buku');
 
         if (empty($_SESSION['username'])){
@@ -8,11 +9,10 @@
     alert("Anda Harus Login Terlebih Dahulu")
 </script>
 <script>
-    window.location = "../login.php"
+    window.location = "../user/login.php"
 </script>
 <?php
-    }else{?>
-
+        }else{?>
 <div class="panel-content">
           <div class="main-title-sec">
                <div class="row">
@@ -24,12 +24,12 @@
                         ?>
                         <div role="alert" class="alert color green-bg fade in alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            <strong>Insert Sukses!</strong> Peminjaman buku berhasil dilakukan.
+                            <strong>Insert Sukses!</strong> Pengembalian buku berhasil dilakukan.
                         </div>
                         <?php } else if($alert=='insert_gagal'){ ?>
                         <div role="alert" class="alert color red-bg fade in alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            <strong>Insert Gagal!</strong> Peminjaman buku gagal dilakukan.
+                            <strong>Insert Gagal!</strong> Pengembalian buku gagal dilakukan.
                         </div>
                         <?php } else if($alert=='upload_gagal'){ ?>
                         <div role="alert" class="alert color red-bg fade in alert-dismissible">
@@ -58,67 +58,63 @@
                         </div>
                         <?php } } ?>
                     </div>
-                    <div class="col-md-3 column">
-                         <div class="heading-profile">
-                              <h2>Data Peminjaman</h2>
-                         </div>
-                    </div>
-               </div>
-          </div><!-- Heading Sec -->
-          <ul class="breadcrumbs">
-               <li><a href="#" title="">Beranda</a></li>
-               <li>Data Peminjaman</li>
-          </ul>
 
-<div class="x_content">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card-box table-responsive">
-                <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
+	        <div class="x_content">
+	            <div class="row">
+	                <div class="col-sm-12">
+	                    <div class="card-box table-responsive">
+	                    <table border="1px solid" class="table table-striped table-bordered"
+	                            id="datatable-ku" style="width:100%">
                     <thead>
                         <tr>
-
                             <th>Judul</th>
-                            <th>Penerbit</th>
-                            <th>Tanggal Peminjaman</th>
-                            <th>Tanggal Pengembalian</th>
+                            <th>Tanggal Harus Dikembalikan</th>
+                            <th>Tanggal Kembali</th>
                             <th>Nama Peminjam</th>
-                            <th>NIA</th>
-                            <th>Jumlah</th>
-                            <th>Option</th>
+                            <th>NIM</th>
+                            <th>Denda</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                $query = mysqli_query($konek, "SELECT * FROM tb_buku INNER JOIN tbl_peminjaman ON tb_buku.id_buku = tbl_peminjaman.id_buku INNER JOIN tbl_anggota ON tbl_anggota.id_anggota = tbl_peminjaman.id_user WHERE tbl_peminjaman.status = 'belum kembali' ");
-                while ($data = mysqli_fetch_object($query)) {?>
+                $query = mysqli_query($konek, "SELECT * FROM tbl_pengembalian INNER JOIN tbl_peminjaman ON tbl_pengembalian.id_peminjaman = tbl_peminjaman.id_peminjaman INNER JOIN tb_buku ON tbl_peminjaman.id_buku = tb_buku.id_buku INNER JOIN tbl_anggota ON tbl_anggota.id_anggota = tbl_peminjaman.id_user WHERE tbl_peminjaman.status = 'kembali' ORDER BY id_pengembalian DESC");
+                while ($data = mysqli_fetch_object($query)) {
+                    $tgl = terlambat($data->tgl_pengembalian,$data->tgl_kembali);
+                    ?>
 
-                        <tr>
-                            <td><?= $data->judul_buku ?></td>
-                            <td><?= $data->penerbit ?></td>
-                            <td><?= $data->tgl_peminjaman ?></td>
-                            <td><?= $data->tgl_pengembalian ?></td>
-                            <td><?= $data->nama ?></td>
-                            <td><?= $data->nia ?></td>
-                            <td><?= $data->jumlah ?></td>
-                            <td><a href="lib/kembali.php?id_peminjaman=<?=$data->id_peminjaman ?>" class="btn btn-primary">Kembalikan</a>
-                            </td>
-
-
+            <tr>
+                <td><?= $data->judul_buku ?></td>
+                <td><?= $data->tgl_pengembalian ?></td>
+                <td><?= $data->tgl_kembali ?></td>
+                <td><?= $data->nama ?></td>
+                <td><?= $data->nia ?></td>
+                <td>Rp.<?= $tgl * 500 ?></td>
                         </tr>
                         <?php } ?>
                     </tbody>
 
                 </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
             </div>
+            <!-- /page content -->
+
+
         </div>
     </div>
-</div>
 
-<!-- /page content -->
-</div>
-
+</body>
 <?php } ?>
 
 </html>

@@ -133,8 +133,8 @@ function get_default_values($table) {
 	return (object)$values;
 }
 
-function get_values_at($table, $id, $not_found_handler = '') {
-	$data = get_instance()->db->get_where($table, [$table.'_id' => $id])->row();
+function get_values_at($table, $where, $not_found_handler = '') {
+	$data = get_instance()->db->get_where($table, $where)->row();
 	if (empty($data) && is_callable($not_found_handler))
 		$not_found_handler();
 	return $data;

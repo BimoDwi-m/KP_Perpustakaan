@@ -21,7 +21,7 @@
 
   <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
   <link href="<?= base_url('vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('vendor/datatables/dataTables.bootstrap.min.css') ?>" />
+  <link rel="stylesheet" type="text/css" href="<?= base_url('vendor/bootstrap-table/bootstrap-table.min.css') ?>" />
   <link rel="stylesheet" href="<?= base_url('vendor/fancybox/jquery.fancybox.min.css') ?>" />
 
   <!-- Our Website CSS Styles -->
@@ -32,6 +32,14 @@
   <!-- Favicons -->
   <link rel="icon" href="<?= base_url('assets/img/logosmp4.png') ?>">
 
+  <script src="<?= base_url('vendor/jquery/jquery.min.js') ?>"></script>
+  <script src="<?= base_url('vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
+  <script src="<?= base_url('vendor/bootstrap-table/bootstrap-table.min.js') ?>"></script>
+  <script src="<?= base_url('vendor/fancybox/jquery.fancybox.min.js') ?>"></script>
+  <script src="<?= base_url('vendor/dataTables.bootstrap.min.js') ?>"></script>
+  <script src="<?= base_url('vendor/tinymce/jquery.tinymce.min.js') ?>"></script>
+  <script src="<?= base_url('vendor/tinymce/tinymce.min.js') ?>"></script>
+
 </head>
 
 <body>
@@ -39,20 +47,41 @@
   <?php $this->load->view('admin/navbar', $navdata) ?>
 
   <div class="main-content">
-  <div class="panel-content">
+    <div class="panel-content">
 
-    <div class="main-title-sec">
-      <div class="row">
-        <div class="col-md-3 column">
-          <div >
-            <h2><?= $breadcrumb[count($breadcrumb) - 1] ?></h2>
+
+      <?php if (isset($error)) : ?>
+        <div class="alert alert-danger" role="alert">
+          <?= $error ?>
+        </div>
+      <?php endif ?>
+      <?php if (isset($message)) : ?>
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+          <?= $message ?>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <?php endif ?>
+
+      <div class="main-title-sec">
+        <div class="row">
+          <div class="col-md-3 column">
+            <div>
+              <h2><?= $breadcrumb[count($breadcrumb) - 1] ?></h2>
+            </div>
           </div>
         </div>
-      </div>
-    </div><!-- Heading Sec -->
-    <ul class="breadcrumbs">
-      <li><a href="<?= base_url('admin/')?>" title="">Admin</a></li>
-      <?php foreach ($breadcrumb as $b) : ?>
-        <li><a href="#" title=""><?=$b?></a></li>
-      <?php endforeach ?>
-    </ul>
+      </div><!-- Heading Sec -->
+      <ul class="breadcrumbs">
+        <li><a href="<?= base_url('admin/') ?>" title="">Admin</a></li>
+        <?php foreach ($breadcrumb as $item) : ?>
+          <?php if (is_array($item)) : ?>
+            <li class="breadcrumb-item">
+              <a href="<?= base_url('admin/'.$item[0]) ?>"><?= $item[1] ?></a>
+            </li>
+          <?php else : ?>
+            <li class="breadcrumb-item active"><?= $item ?></li>
+          <?php endif ?>
+        <?php endforeach ?>
+      </ul>

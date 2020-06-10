@@ -7,7 +7,7 @@
   </div><!-- Top Bar -->
   <div class="side-menu-sec" id="header-scroll">
     <div class="side-menus">
-      <span><strong>MENU UTAMA</strong></span>
+      <span class="mt-4"><strong>MENU UTAMA</strong></span>
       <nav>
         <ul class="parent-menu">
 
@@ -16,31 +16,31 @@
           </li>
 
           <li class="<?= $breadcrumb[0] === 'Anggota' ? 'active' : '' ?>">
-            <a href="<?= base_url('admin/anggota') ?>"><i class="fa fa-users"></i>Data Anggota</a>
+            <a href="<?= base_url('admin/anggota/') ?>"><i class="fa fa-users"></i>Data Anggota</a>
           </li>
 
           <li class="<?= $breadcrumb[0] === 'Buku' ? 'active' : '' ?>">
-            <a href="<?= base_url('admin/buku') ?>"><i class="fa fa-book"></i>Data Buku</a>
+            <a href="<?= base_url('admin/buku/') ?>"><i class="fa fa-book"></i>Data Buku</a>
           </li>
 
           <li class="<?= $breadcrumb[0] === 'Kategori' ? 'active' : '' ?>">
-            <a href="<?= base_url('admin/kategori') ?>"><i class="fa fa-tag"></i>Kategori Buku</a>
+            <a href="<?= base_url('admin/kategori/') ?>"><i class="fa fa-tag"></i>Kategori Buku</a>
           </li>
 
           <li class="<?= $breadcrumb[0] === 'Peminjaman' ? 'active' : '' ?>">
-            <a href="<?= base_url('admin/peminjaman') ?>"><i class="fa fa-arrow-up"></i>Peminjaman Buku</a>
+            <a href="<?= base_url('admin/peminjaman/') ?>"><i class="fa fa-arrow-up"></i>Peminjaman Buku</a>
           </li>
 
           <li class="<?= $breadcrumb[0] === 'Pengembalian' ? 'active' : '' ?>">
-            <a href="<?= base_url('admin/pengembalian') ?>"><i class="fa fa-arrow-down"></i>Pengembalian Buku</a>
+            <a href="<?= base_url('admin/pengembalian/') ?>"><i class="fa fa-arrow-down"></i>Pengembalian Buku</a>
           </li>
 
           <li class="<?= $breadcrumb[0] === 'Comment' ? 'active' : '' ?>">
-            <a href="<?= base_url('admin/comment') ?>"><i class="fa fa-comment"></i>Kelola Komentar</a>
+            <a href="<?= base_url('admin/comment/') ?>"><i class="fa fa-comment"></i>Kelola Komentar</a>
           </li>
 
           <li class="<?= $breadcrumb[0] === 'Profile' ? 'active' : '' ?>">
-            <a href="<?= base_url('admin/profile') ?>"><i class="fa fa-user"></i>Profil</a>
+            <a href="<?= base_url('admin/profile/') ?>"><i class="fa fa-user"></i>Profil</a>
           </li>
 
           <li>
